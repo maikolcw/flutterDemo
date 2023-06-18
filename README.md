@@ -1,6 +1,6 @@
 # flutter_demo
 
-A new Flutter project.
+Just me refreshing my Flutter syntax and practicing with Widgets.
 
 ## Getting Started
 
