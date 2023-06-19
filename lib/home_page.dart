@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
             ),
           );
         },
-        child: const Text("Elevated Button"),
+        child: const Text("Elevated Button - Go to Flutter Page"),
       ),
     );
   }

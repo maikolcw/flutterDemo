@@ -51,6 +51,9 @@ class _FlutterPageState extends State<FlutterPage> {
             ),
           ),
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: isSwitch ? Colors.blue : Colors.deepPurple,
+            ),
             onPressed: () {
               debugPrint("You pressed the Elevated Button");
             },
