@@ -27,6 +27,8 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
+  // page number
+  int currentPage = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +36,22 @@ class _RootPageState extends State<RootPage> {
         title: const Text("Hello World"),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          debugPrint("Pressed floating action button");
+        },
+        child: const Icon(Icons.home),
+      ),
+      bottomNavigationBar: NavigationBar(
+        destinations: const [
+          NavigationDestination(icon: Icon(Icons.home), label: "Home"),
+          NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
+        ],
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPage = index;
+          });
+        },
+        selectedIndex: currentPage,
       ),
     );
   }
