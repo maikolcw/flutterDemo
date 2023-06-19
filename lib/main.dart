@@ -9,8 +9,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: RootPage(
+    return MaterialApp(
+      // theme attribute
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple
+      ),
+      home: const RootPage(
 
       ),
     );
@@ -27,6 +31,10 @@ class RootPage extends StatefulWidget {
 class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+
+      ),
+    );
   }
 }
