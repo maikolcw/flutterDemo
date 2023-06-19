@@ -10,6 +10,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // remove debug banner
+      debugShowCheckedModeBanner: false,
       // theme attribute
       theme: ThemeData(
         primarySwatch: Colors.deepPurple
