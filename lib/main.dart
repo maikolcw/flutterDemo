@@ -13,12 +13,8 @@ class MyApp extends StatelessWidget {
       // remove debug banner
       debugShowCheckedModeBanner: false,
       // theme attribute
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple
-      ),
-      home: const RootPage(
-
-      ),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      home: const RootPage(),
     );
   }
 }
@@ -35,7 +31,10 @@ class _RootPageState extends State<RootPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
+        title: const Text("Hello World"),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
       ),
     );
   }
