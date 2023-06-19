@@ -8,6 +8,7 @@ class FlutterPage extends StatefulWidget {
 }
 
 class _FlutterPageState extends State<FlutterPage> {
+  bool isSwitch = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +68,7 @@ class _FlutterPageState extends State<FlutterPage> {
             },
             child: const Text("This is an Text Button"),
           ),
-          // sample event handler 
+          // sample event handler
           GestureDetector(
             // activates taps anywhere on Row Widget
             behavior: HitTestBehavior.opaque,
@@ -88,7 +89,16 @@ class _FlutterPageState extends State<FlutterPage> {
                 ),
               ],
             ),
-          )
+          ),
+          Switch(
+              value: isSwitch,
+              // function takes in a bool
+              onChanged: (bool newBool) {
+                // tells flutter what to refresh
+                setState(() {
+                  isSwitch = newBool;
+                });
+              })
         ],
       ),
     );
