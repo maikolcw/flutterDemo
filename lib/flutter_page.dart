@@ -23,6 +23,11 @@ class _FlutterPageState extends State<FlutterPage> {
           icon: const Icon(Icons.arrow_back),
         ),
       ),
+      body: Column(
+        children: [
+          Image.asset("images/butterflutter.jpg")
+        ],
+      ),
     );
   }
 }
