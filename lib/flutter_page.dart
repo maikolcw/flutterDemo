@@ -25,7 +25,23 @@ class _FlutterPageState extends State<FlutterPage> {
       ),
       body: Column(
         children: [
-          Image.asset("images/butterflutter.jpg")
+          Image.asset("images/butterflutter.jpg"),
+          // spacing
+          const SizedBox(
+            height: 8,
+          ),
+          const Divider(
+            color: Colors.black,
+          ),
+          Container(
+            color: Colors.blue,
+            child: const Text(
+              "This is a Text Widget",
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
         ],
       ),
     );
