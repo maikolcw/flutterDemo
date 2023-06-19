@@ -10,6 +10,19 @@ class FlutterPage extends StatefulWidget {
 class _FlutterPageState extends State<FlutterPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Flutter Page"),
+        // remove back arrow on title
+        automaticallyImplyLeading: false,
+        // choose how back arrow look
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
+      ),
+    );
   }
 }
