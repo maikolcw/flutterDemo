@@ -9,6 +9,7 @@ class FlutterPage extends StatefulWidget {
 
 class _FlutterPageState extends State<FlutterPage> {
   bool isSwitch = false;
+  bool? isCheckBox = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,85 +25,100 @@ class _FlutterPageState extends State<FlutterPage> {
           icon: const Icon(Icons.arrow_back),
         ),
       ),
-      body: Column(
-        children: [
-          Image.asset("images/butterflutter.jpg"),
-          // spacing
-          const SizedBox(
-            height: 8,
-          ),
-          const Divider(
-            color: Colors.black,
-          ),
-          // a div
-          Container(
-            margin: const EdgeInsets.all(7.0),
-            padding: const EdgeInsets.all(7.0),
-            color: Colors.blue,
-            // maximum width
-            width: double.infinity,
-            child: const Center(
-              child: Text(
-                "This is a Text Widget",
-                style: TextStyle(
-                  color: Colors.white,
+      // Wrapped with Single Child Scroll View to tell Flutter it is scrollable
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.asset("images/butterflutter.jpg"),
+            // spacing
+            const SizedBox(
+              height: 8,
+            ),
+            const Divider(
+              color: Colors.black,
+            ),
+            // a div
+            Container(
+              margin: const EdgeInsets.all(7.0),
+              padding: const EdgeInsets.all(7.0),
+              color: Colors.blue,
+              // maximum width
+              width: double.infinity,
+              child: const Center(
+                child: Text(
+                  "This is a Text Widget",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
-          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: isSwitch ? Colors.blue : Colors.deepPurple,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: isSwitch ? Colors.blue : Colors.deepPurple,
+              ),
+              onPressed: () {
+                debugPrint("You pressed the Elevated Button");
+              },
+              child: const Text("This is an Elevated Button"),
             ),
-            onPressed: () {
-              debugPrint("You pressed the Elevated Button");
-            },
-            child: const Text("This is an Elevated Button"),
-          ),
-          OutlinedButton(
-            onPressed: () {
-              debugPrint("You pressed the Outlined button");
-            },
-            child: const Text("This is an Outlined Button"),
-          ),
-          TextButton(
-            onPressed: () {
-              debugPrint("You pressed the Text button");
-            },
-            child: const Text("This is an Text Button"),
-          ),
-          // sample event handler
-          GestureDetector(
-            // activates taps anywhere on Row Widget
-            behavior: HitTestBehavior.opaque,
-            onTap: () {
-              debugPrint("You click on Widgets in the Row Widget");
-            },
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Icon(
-                  Icons.local_fire_department,
-                  color: Colors.blue,
-                ),
-                Text("This is a Row Widget"),
-                Icon(
-                  Icons.local_fire_department,
-                  color: Colors.blue,
-                ),
-              ],
+            OutlinedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                    (isCheckBox ?? false) ? Colors.blue : Colors.white,
+              ),
+              onPressed: () {
+                debugPrint("You pressed the Outlined button");
+              },
+              child: const Text("This is an Outlined Button"),
             ),
-          ),
-          Switch(
-              value: isSwitch,
-              // function takes in a bool
-              onChanged: (bool newBool) {
-                // tells flutter what to refresh
+            TextButton(
+              onPressed: () {
+                debugPrint("You pressed the Text button");
+              },
+              child: const Text("This is an Text Button"),
+            ),
+            // sample event handler
+            GestureDetector(
+              // activates taps anywhere on Row Widget
+              behavior: HitTestBehavior.opaque,
+              onTap: () {
+                debugPrint("You click on Widgets in the Row Widget");
+              },
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Icon(
+                    Icons.local_fire_department,
+                    color: Colors.blue,
+                  ),
+                  Text("This is a Row Widget"),
+                  Icon(
+                    Icons.local_fire_department,
+                    color: Colors.blue,
+                  ),
+                ],
+              ),
+            ),
+            Switch(
+                value: isSwitch,
+                // function takes in a bool
+                onChanged: (bool newBool) {
+                  // tells flutter what to refresh
+                  setState(() {
+                    isSwitch = newBool;
+                  });
+                }),
+            Checkbox(
+              value: isCheckBox,
+              onChanged: (bool? newBool) {
                 setState(() {
-                  isSwitch = newBool;
+                  isCheckBox = newBool;
                 });
-              })
-        ],
+              },
+            )
+          ],
+        ),
       ),
     );
   }
