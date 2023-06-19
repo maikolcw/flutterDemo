@@ -24,6 +24,14 @@ class _FlutterPageState extends State<FlutterPage> {
           },
           icon: const Icon(Icons.arrow_back),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              debugPrint("You pressed the Icon Button Widget");
+            },
+            icon: const Icon(Icons.info_outline),
+          ),
+        ],
       ),
       // Wrapped with Single Child Scroll View to tell Flutter it is scrollable
       body: SingleChildScrollView(
@@ -117,7 +125,8 @@ class _FlutterPageState extends State<FlutterPage> {
                 });
               },
             ),
-            Image.network("https://storage.googleapis.com/cms-storage-bucket/c823e53b3a1a7b0d36a9.png")
+            Image.network(
+                "https://storage.googleapis.com/cms-storage-bucket/c823e53b3a1a7b0d36a9.png"),
           ],
         ),
       ),
